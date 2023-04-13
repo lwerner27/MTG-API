@@ -8,7 +8,7 @@ router.get('/hello-world', (req, res) => {
 
 // Route that gets all Unique Card names:
 // Test controller functions
-app.get('/test', (req, res) => {
+router.get('/test', (req, res) => {
     cardsController.getAllUniqueCardNames(req, res)
 })
 
