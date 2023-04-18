@@ -24,15 +24,9 @@ module.exports = {
     getAllUniqueCardNames: async (req, res) => {
         Cards = getDb().collection('Cards')
         try {
-            let count = 0
-            const allUniqueCardNames = await Cards.distinct("name", {}, {name: 1, _id: 0})
+            const allUniqueCardNames = await Cards.distinct("name")
 
-            allUniqueCardNames.forEach(card => {
-                count++ 
-                console.log(`${count}: ${card}`)
-            })
-
-            res.sendStatus(200)
+            res.send({data: allUniqueCardNames})
             
         } catch (error) {
             console.error('Error getting documents:', error);
